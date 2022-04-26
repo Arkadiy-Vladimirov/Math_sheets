@@ -63,48 +63,145 @@
     определяется своим  действием на группе автоморфизмов произвольной
     вершины $a$\footnote{или на \emph{фундаментальной группе}, что суть 
     одно и то же,} и вектором значений $s \in \mathbb{C}^{n-1}$ на стрелках из 
-    $a$ (здесь $n = |Obj(\Gamma)|$).
+    $a$ (здесь $n = |\Obj(\Gamma)|$).
     
     \bigskip
 
-    Остановимся на задании характера на некоторой группе $G$, в дальнейшем в 
-    качестве $G$ будет рассматриваться фундаментальная группа группоида.
+    Проясним как задается характер на фундментальной группе. Для этого 
+    остановимся на определении характера на некоторой группе $G$.
 
     Как известно\footnote{см. \cite{Vinberg} гл.10 \S 2} разрешимая 
-    группа $G$ раскладывается в прямую сумму абелевых групп
-    \begin{equation}\label{decomp}
+    группа $G$ раскладывается в прямую сумму
+    \begin{equation}\label{G_decomp}
         G \simeq G/G' \oplus \ldots \oplus G^{(n-1)}/G^{(n)},
     \end{equation}
-    где $G^{(k+1)} = (G^{(k)})'$ --- коммутант группы $G^{(k)}$.
+    где $G^{(k+1)} = (G^{(k)})'$ --- коммутант группы $G^{(k)}$. 
 
     Для конечно порожденной абелевой группы $A$
     справедливо разложение\footnote{см.\cite{Vinberg} гл.9 \S 1}
-    \[A \simeq \underbrace{\mathbb{Z} \oplus \ldots \oplus \mathbb{Z}}_{n} 
-    \oplus \Tor A = \mathbb{Z}^{n} \oplus \Tor A,\]
+    \begin{equation}\label{A_decomp}
+        A \simeq \underbrace{\mathbb{Z} \oplus \ldots \oplus \mathbb{Z}}_{n} 
+    \oplus \Tor A = \mathbb{Z}^{n} \oplus \Tor A,
+    \end{equation}
     где $\Tor A \doteqdot \{a \in A: ma = 0\text{ для некоторого }m \in 
-    \mathbb{Z}, m \ne 0\}$ --- \emph{подгруппа кручения}. Более того 
-    \[\Tor A = \mathbb{Z}_{u_1} \oplus \ldots \oplus \mathbb{Z}_{u_m}\text{---}\]
-    --- сумма примарных подгруп. 
+    \mathbb{Z}, m \ne 0\}$ --- \emph{подгруппа кручения}, причем
+    \begin{equation}\label{TorA_decomp}
+        \Tor A \simeq \mathbb{Z}_{p_1} \oplus \ldots \oplus \mathbb{Z}_{p_s},
+    \end{equation}
+    где $\mathbb{Z}_{p}$ --- циклическая группа порядка $p$.
 
-    Таким образом, $A$ представляет собой совокупность всех линейных комбинаций 
-    \[k_1 e_1 + \ldots + k_n e_n + k_{n+1} t_1 + \ldots + k_{n+m} t_m 
-    \quad (k_i \in \mathbb{Z}),\]
-    где $(e_1,\ldots ,e_n)$ --- базис свободной подргуппы, $(t_1,\ldots, t_m)$ 
-    --- порождающие примарных подгрупп.
-
-    Так, чтобы задать характер $\chi$ на группе $A$ достаточно 
-    определить его значение на $(e_1,\ldots ,e_n)$, $(t_1,\ldots, t_m)$. 
-    Впрочем, $\chi(t_i)$ заведомо равно нулю, так как
+    \begin{definition}
+        Назовем группу $G$ \emph{конечно разрешимой}, если она разрешима и 
+        каждое слагаемое разложения \eqref{G_decomp} суть конечно порожденная 
+        абелева группа.
+    \end{definition}
+    
+    Таким образом, из соотношений \eqref{G_decomp} -- \eqref{TorA_decomp} 
+    следует, что если $G$ конечно разрешимая группа, то
     \begin{gather*}
-        (c_i + 1) t_i = t_i,\\
-        \chi((c_i+1) t_i) = \chi(t_i),\\
-        (c_i+1)\chi(t_i) = \chi(t_i),\\
-        c_i \chi(t_i) = 0,\\
-        \chi(t_i) = 0,
+        G \simeq A_0 \oplus \ldots \oplus A_{n-1} \simeq \\ 
+        \simeq \mathbb{Z}^m \oplus \Tor A_0 \oplus \ldots \oplus \Tor A_{n-1} \simeq \\
+        \simeq \mathbb{Z}^m \oplus \mathbb{Z}_{p_1} \oplus \ldots \oplus \mathbb{Z}_{p_k},
     \end{gather*}
-    где $c_i > 0$ --- порядок примарной подгруппы, порожденной $t_i$. Отсюда, 
-    достаточно задать характер лишь на $(e_1,\ldots ,e_n)$ и он будет 
-    однозначно определен на всем $A$.
+    т.е. разложима в сумму конечных и бесконечных циклических групп, а значит
+    \begin{equation}\label{G_basis}
+        G = 
+        \{x_1 e_1 + \ldots + x_m e_m + x_{m+1} f_1 + \ldots + x_{m+k} f_k 
+        \:|\: x_i \in \mathbb{Z}\},
+    \end{equation}
+    где $\{e_i\}_1^m$ -- базис свободной группы $\mathbb{Z}^m$, $\{f_i\}_1^k$ -- 
+    порождающие соответствующих циклических групп $\mathbb{Z}_{p_i}$. Попутно 
+    введем обозначение $\subdim{G} = m$.
+
+    Пусть теперь задан характер $\chi: G \to \mathbb{C}$, тогда для любого 
+    $g \in G$, с учетом \eqref{G_basis} верно
+    \begin{multline*}
+        \chi(g) = \chi(x_1 e_1 + \ldots + x_m e_m 
+        + x_{m+1} f_1 + \ldots + x_{m+k} f_k ) = \\
+        = x_1 \chi(e_1) + \ldots + x_m \chi(e_m) 
+        + x_{m+1} \chi(f_1) + \ldots + x_{m+k} \chi(f_k),
+    \end{multline*}
+    но, так как порядок каждого элемента $f_i$ конечен, то $\chi(f_i) = 0$ для 
+    всех $i=1 \comdots, k$, и
+    \begin{equation}\label{chi_decomp}
+        \chi(g) = x_1 \chi(e_1) + \ldots + x_m \chi(e_m).
+    \end{equation}
+    Так, характер конечно разрешимой группы $G$ определяется $m = \subdim{G}$ числами~--- 
+    значениями характера на базисе свободной подгруппы.
+
+    \bigskip
+
+    Вернемся к характеру группоида $\Gamma$. Как было показано ранее он 
+    определен $(\Obj \Gamma) - 1$ числами и своим действием на фундаментальной 
+    группе группоида $\Fund \Gamma$. Теперь, с учетом \eqref{chi_decomp}, ясно:
+    \emph{характер $\chi :\Hom \Gamma \to \mathbb{C}$ связного группоида 
+    $\Gamma$, фундаментальная группа которого конечно разрешима, определяется 
+    своими значениями на $n = |\Obj \Gamma| - 1$ стрелках исходящих из некоторой 
+    вершины в все прочие и $m = \subdim{\Fund \Gamma}$ значениями на базисе 
+    свободной подгруппы фундаментальной подгруппы.} То есть, вектором 
+    $h(\chi) \in \mathbb{C}^{n+m}$.
+
+    Теперь, после того как мы можем взаимооднозначно сопоставить любому 
+    характеру вектор пространства соответствующей размерности, приходим к 
+    очевидному выводу: 
+    \begin{equation}
+        V \doteqdot \{\chi: \Hom \Gamma \to \mathbb{C}\} \simeq 
+        \mathbb{C}^{\subdim{\Fund \Gamma} + |\Obj \Gamma| - 1},
+    \end{equation}
+    где $\Gamma$ --- группоид, такой что $|\Obj \Gamma| < \infty$ и 
+    $\Fund \Gamma$ конечно разрешима.
+
+
+
+    
+
+    %Каждая из групп $A_k = G^{(k)}/G^{(k+1)}$ абелева, если к тому же все 
+    %они кончено порождены, то для произвольно выбранной $A = A_k$ имеет место 
+    %разложение\footnote{см.\cite{Vinberg} гл.9 \S 1}
+    %\[A \simeq \underbrace{\mathbb{Z} \oplus \ldo3ts \oplus \mathbb{Z}}_{p} 
+    %\oplus \Tor A = \mathbb{Z}^{p} \oplus \Tor A,\]
+    %и 
+    %\begin{equation}\label{bas_A}
+    %    A = \langle e_1,\ldots,e_p, f_1,\ldots, f_q\rangle,
+    %\end{equation}
+    %где $e$ --- базис 
+    %свободной подгруппы $\mathbb{Z}^p$, a $f$ --- порождающие примарных 
+    %подгрупп, прямая сумма которых есть $\Tor A$.
+
+    %Поскольку $G \simeq A_0 \oplus \ldots \oplus A_{n-1}$, и \eqref{bas_A} 
+    %верно для всех $A_k$, справедливо
+    %\[G = \langle e_1,\ldots,e_p, f_1,\ldots, f_q\rangle,\]
+    %где $e$ --- объединение базисов всех свободных подгрупп $A_k$, $f$ --- 
+    %порождающих соответствующих примарных групп, p
+
+    %Для конечно порожденной абелевой группы $A$
+    %справедливо разложение\footnote{см.\cite{Vinberg} гл.9 \S 1}
+    %\[A \simeq \underbrace{\mathbb{Z} \oplus \ldots \oplus \mathbb{Z}}_{n} 
+    %\oplus \Tor A = \mathbb{Z}^{n} \oplus \Tor A,\]
+    %где $\Tor A \doteqdot \{a \in A: ma = 0\text{ для некоторого }m \in 
+    %\mathbb{Z}, m \ne 0\}$ --- \emph{подгруппа кручения}. Более того 
+    %\[\Tor A = \mathbb{Z}_{u_1} \oplus \ldots \oplus \mathbb{Z}_{u_m}\text{---}\]
+    %--- сумма примарных подгруп. 
+
+    %Таким образом, $A$ представляет собой совокупность всех линейных комбинаций 
+    %\[k_1 e_1 + \ldots + k_n e_n + k_{n+1} t_1 + \ldots + k_{n+m} t_m 
+    %\quad (k_i \in \mathbb{Z}),\]
+    %где $(e_1,\ldots ,e_n)$ --- базис свободной подргуппы, $(t_1,\ldots, t_m)$ 
+    %--- порождающие примарных подгрупп.
+
+    %Так, чтобы задать характер $\chi$ на группе $A$ достаточно 
+    %определить его значение на $(e_1,\ldots ,e_n)$, $(t_1,\ldots, t_m)$. 
+    %Впрочем, $\chi(t_i)$ заведомо равно нулю, так как
+    %\begin{gather*}
+    %    (c_i + 1) t_i = t_i,\\
+    %    \chi((c_i+1) t_i) = \chi(t_i),\\
+    %    (c_i+1)\chi(t_i) = \chi(t_i),\\
+    %    c_i \chi(t_i) = 0,\\
+    %    \chi(t_i) = 0,
+    %\end{gather*}
+    %где $c_i > 0$ --- порядок примарной подгруппы, порожденной $t_i$. Отсюда, 
+    %достаточно задать характер лишь на $(e_1,\ldots ,e_n)$ и он будет 
+    %однозначно определен на всем $A$.
 
     %Вернемся к группе $G$ допускающей разложение \eqref{decomp}. Обозначим 
     %абелевы группы $G^{(k)} / G^{(k+1)}$ как $A_k$. В случае если все $A_k$ 
