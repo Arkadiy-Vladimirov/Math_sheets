@@ -21,68 +21,142 @@
 \subsection*{Решение}
 
 \subsubsection{Группоид}
-    Для начала отметим следующие три утверждения: если в группоиде $\Gamma$ 
-    известны
-    \begin{description}
-        \item[\mdseries{(a)}] $f: a \to b$, $\hom(a,a)$, то посредством 
-        изоморфизма $\psi : \hom(a,a) \to~\hom(b,b)$, а именно $\psi: h \mapsto 
-        fhf^{-1}$ однозначно определено $\hom(b,b)$;
-        \item[\mdseries{(b)}] $f: a \to b$, $\hom(a,a)$, то однозначно 
-        определено $\hom(a,b)$, так как для любого \\$g \in \hom(a,b)$ существует 
-        $h \in \hom(a,a)$, такое что $fh = g$, а именно \\$g = 
-        f\underbrace{f^{-1}g} = fh$;
-        \item[\mdseries{(c)}] $f: a \to b$, $g: a \to c$, то можно задать 
-        некоторое $h: b \to c$, а именно $h = gf^{-1}$.
-    \end{description}
+    \begin{definition}\cite{MacLane}
+        \emph{Группоидом} назывется категория, в которой любая стрелка обратима.
+    \end{definition}
 
-    Таким образом, если в связном группоиде $\Gamma$ известны группа петель 
-    $\hom(a,a)$ некоторой вершины $a$ и по одной стрелке $f: a \to b,\: 
-    g: a \to c\comdots$ из $a$ в каждую из остальных вершин $b,c\comdots$ то 
-    посредством утверджений (a)--(c) однозначно восстанавливается весь группоид 
-    $\Gamma$, что иллюстрирует диаграмма \eqref{cd_Grup}
-    \begin{equation}\label{cd_Grup}
-    \xymatrix{
-        b \ar@{-->}[ddrr]^{\textstyle{h=g \circ f^{-1}}}  &  & \\
-        & & \\
-        a \ar@(l,d)[]_{\textstyle{\hom(a,a)}} \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & c
-    }
-    \end{equation}
+    Попытаемся вначале внести ясность в то, как группоид устроен. Под 
+    группоидом здесь и всюду далее будет подразумеваться связный группоид. 
+    Введем следующее
+    \begin{definition}
+        \emph{Элементарным группоидом} будем называть группоид для любых двух 
+        вершин $a$ и $b$ которого существует одна и притом только одна стрелка 
+        $f: a \to b$. см. рис. \ref{cd_eGrup}.
+    \end{definition}
+    Тот факт, что такие группоиды существуют доказывается непосредственно 
+    проверкой аксиом и представляется очевидным.
 
-    Рассмотрим теперь некоторый характер $\chi: \Hom \Gamma \to \mathbb{C}$.
-    Благодаря свойству $\chi(\psi \circ \phi) = \chi(\psi) + \chi(\phi)$ все 
-    вышесказанное в определенном смысле переносится и на характер $\chi$. Так, 
-    если $\chi$ задано на 
-    \begin{description}
-        \item[\mdseries{(a')}] $f: a \to b$, $\hom(a,a)$, то изоморфизм $\psi$ 
-        ``один в один'' переносит харакатер на $\hom (b,b)$: если 
-        $\chi(h) = \alpha$, то $\chi(\psi(h)) = \chi(fhf^{-1}) = \chi(f) + 
-        \chi(h) - \chi(f) = \chi(h)$, и характер однозначно определен на 
-        $\hom(b,b)$.
-        \item[\mdseries{(b')}] $f: a \to b$, $\hom(a,a)$, то харктер однозначно 
-        продолжается на $\hom(a,b)$, так как для любого $g \in \hom(a,b)$ существует 
-        $h \in \hom(a,a)$, такое что $fh = g$, и следовательно $\chi(g) = 
-        \chi(f) + \chi(h)$.
-        \item[\mdseries{(c')}] $f: a \to b$, $g: a \to c$, то автоматически 
-        можно задать характер на некотором $h: b \to c$, а именно $h = gf^{-1}$, 
-        и $\chi(h) = \chi(g) - \chi(f)$.
-    \end{description}
-
-    Таким образом, если в связном группоиде $\Gamma$ определить характер на 
-    группе петель $\hom(a,a)$ некоторой вершины $a$ и на стрелках $f: a \to b,\: 
-    g: a \to c\comdots$ из $a$ (по одной в каждую из остальных вершин $b,c\comdots$), то 
-    характер однозначно продолжается на все $\Hom \Gamma$. То есть, характер 
-    определяется своим  действием на группе петель произвольной
-    вершины $a$\footnote{или на \emph{фундаментальной группе}, что суть 
-    одно и то же,} и вектором значений $s \in \mathbb{C}^{n-1}$ на стрелках из 
-    $a$ (здесь $n = |\Obj(\Gamma)|$).
-
-    \begin{equation}\tag{\ref{cd_Grup}'}
-        \xymatrix{
-            b \ar@{-->}[ddrr]^{\textstyle{\chi(h)=\chi(g)- \chi(f)}}  &  & \\
+    \begin{figure}[h]
+        \centering
+        \[\xymatrix{
+            b \ar@{-->}[ddrr]^{\textstyle{h=g \circ f^{-1}}} & & \\
             & & \\
-            a \ar@(l,d)[]_{\textstyle{\chi|_{\hom(a,a)}}} \ar[uu]^{\textstyle{\chi(f)}} \ar[rr]_{\textstyle{\chi(g)}} & & c
+            a \ar@(l,d)[]_{\textstyle{\id_a}} \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & c
+        }\]
+        \caption{элементарный группоид}
+        \label{cd_eGrup}
+    \end{figure}
+
+    Заметим, что предъявление множества всех вершин и стрелок является 
+    \emph{избыточным} для задания элементарного группоида. Введем объект 
+    достаточный (и в некотором смысле минимальный) для определения 
+    элементарного группоида целиком.
+    
+    \begin{definition}
+        \emph{Пучком стрелок}, исходящих из вершины $a$ назовем совокупность 
+        стрелок $f: a \to b$, $g: a \to c,\ldots$, по одной в каждую из 
+        остальных вершин $\Obj(\Gamma)/{a}$.
+    \end{definition}
+
+    \begin{statement}
+        Элементарный группоид задается пучком стрелок из произвольной вершины. 
+        Более точно: пусть $\Gamma$ --- элементарный группоид, $\pi(a)$ --- 
+        пучок стрелок из вершины $a \in \Obj(\Gamma)$, тогда минимальный по включению 
+        группоид, содержащий $\pi(a)$ совпадает с $\Gamma$.
+    \end{statement}
+    \begin{proof}
+        Доказательство представялется очевидным. см. рис. \ref{cd_eGrup_bas}
+    \end{proof}
+
+    \begin{figure}[h]
+        \centering
+        \[\xymatrix{
+            b \ar@{.>}@(r,u)[ddrr]^{\textstyle{h=g \circ f^{-1}}} 
+              \ar@{.>}@(dl,ul)[dd]_{\textstyle{f^{-1}}} 
+            & & \\
+            & & \\
+            a \ar@{.>}@(l,d)[]_{\textstyle{\id_a = g^{-1}g}} 
+              \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} 
+            & & 
+            c \ar@{.>}@(dl,dr)[ll]^{\textstyle{g^{-1}}} 
+              \ar@{.>}@/^/[lluu]_{\textstyle{h^{-1}}}
+        }\]
+        \caption{пучок стрелок в элементарном группоиде}
+        \label{cd_eGrup_bas}
+    \end{figure}
+
+    Вернемся теперь к группоиду, не обязательно элементарному и обратим 
+    внимание на следующий факт 
+
+    \begin{figure}[h]
+        \centering
+        \[\xymatrix{
+            b \ar@{-->}[ddrr]^{\textstyle{h=g \circ f^{-1}}} & & \\
+            & & \\
+            a \ar@(l,d)[]_{\textstyle{\hom(a,a)}} \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & c
+        }\]
+        \caption{группоид}
+        \label{cd_Grup}
+    \end{figure}
+
+    \begin{statement}
+        Для любых двух вершин $a$, $b$ $\in \Obj(\Gamma)$ справедливо
+        \begin{equation}
+            \hom(a,b) = f \cdot \hom(a,a),
+        \end{equation}
+        где $f \cdot A \doteqdot \{fh \:|\: \forall h \in A\}$, и 
+        $f$ --- некоторая стрелка из $a$ в $b$.
+    \end{statement}
+    \begin{proof}
+    \end{proof}
+
+    \newpage
+    \begin{definition}
+        назовем \emph{пучком стрелок} исходящим из вершины $a$ совокупность стрелок 
+        $f: a \to b$, $g: a \to c,\ldots$, по одной в каждую из остальных вершин 
+        $\Obj(\Gamma)/{a}$.
+    \end{definition}
+
+    \begin{definition}
+        Назовем \emph{остовом} группоида $\Gamma$ с \emph{основанием} $a$ 
+        совокупность группы петель основания $\hom(a,a)$ и пучка исходящих из 
+        него стрелок (диаграмма \eqref{cd_ostov}).
+    \end{definition}
+
+    \begin{equation}\label{cd_ostov}
+        \xymatrix{
+            \bullet  &  & \dots \\
+            & & \\
+            \bullet \ar@(l,d)[]_{\textstyle{\hom(a,a)}} \ar[uurr] \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & \bullet
         }
     \end{equation}
+
+    Ясно, что
+    \begin{statement}
+        группоид однозначно определяется своим остовом.
+    \end{statement}
+
+    \begin{proof}
+        Действительно, пусть дан остов с основанием в вершине $a$, тогда 
+        множество объектов группоида определено и состовляет
+        \[\Obj(\Gamma) = a \cup \{b = \codom f: \text{по всем $f$ из пучка вершины $a$}\}.\]
+        Чтобы показать как остов определяет $\Hom(\Gamma)$ отметим следующие 
+        утверждения, справедливые в любом связном группоиде:
+        \begin{description}
+            \item[\mdseries{(a)}] для любых вершин  $a$  и $b$ 
+            \begin{equation}
+                \hom(a,b) = f \cdot \hom(a,a) = \{f\cdot h \:|\: \forall h \in \hom(a,a)\},
+            \end{equation}
+            где $f$ --- некоторая стрелка из $a$ из $b$. Действительно, 
+            вложение правого множества в левое очевидно, ввиду аксиом 
+            композиции категории. Обратное вложение справедливо, т.к. для 
+            любого $g \in \hom(a,b)$ существует $h \in \hom(a,a)$, такое что 
+            $fh = g$, а именно $h = f^{-1}g$.
+            \item[\mdseries{(b)}]
+            \item[\mdseries{(c)}]
+        \end{description}
+
+    \end{proof}
 
     \bigskip
 
@@ -128,7 +202,7 @@
     \end{equation}
     
     Очевидно, что $\chi_{ab}$ --- характер:
-    \[\chi_{ab}(gf G') = \chi(gf) = \chi(g) + chi(f) = \chi_{ab}(gG') + \chi_{ab}(fG').\]
+    \[\chi_{ab}(gf G') = \chi(gf) = \chi(g) + \chi(f) = \chi_{ab}(gG') + \chi_{ab}(fG').\]
     \end{proof}
     
     \begin{remark} Попутно доказано важное для понимания происходящего 

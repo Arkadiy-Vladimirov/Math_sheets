@@ -1,0 +1,62 @@
+Для начала отметим следующие три утверждения: если в группоиде $\Gamma$ 
+    известны
+    \begin{description}
+        \item[\mdseries{(a)}] $f: a \to b$, $\hom(a,a)$, то посредством 
+        изоморфизма $\psi : \hom(a,a) \to~\hom(b,b)$, а именно $\psi: h \mapsto 
+        fhf^{-1}$ однозначно определено $\hom(b,b)$;
+        \item[\mdseries{(b)}] $f: a \to b$, $\hom(a,a)$, то однозначно 
+        определено $\hom(a,b)$, так как для любого \\$g \in \hom(a,b)$ существует 
+        $h \in \hom(a,a)$, такое что $fh = g$, а именно \\$g = 
+        f\underbrace{f^{-1}g} = fh$;
+        \item[\mdseries{(c)}] $f: a \to b$, $g: a \to c$, то можно задать 
+        некоторое $h: b \to c$, а именно $h = gf^{-1}$.
+    \end{description}
+
+    Таким образом, если в связном группоиде $\Gamma$ известны группа петель 
+    $\hom(a,a)$ некоторой вершины $a$ и по одной стрелке $f: a \to b,\: 
+    g: a \to c\comdots$ из $a$ в каждую из остальных вершин $b,c\comdots$ то 
+    посредством утверджений (a)--(c) однозначно восстанавливается весь группоид 
+    $\Gamma$, что иллюстрирует диаграмма \eqref{cd_Grup}
+    \begin{equation}\label{cd_Grup}
+    \xymatrix{
+        b \ar@{-->}[ddrr]^{\textstyle{h=g \circ f^{-1}}}  &  & \\
+        & & \\
+        a \ar@(l,d)[]_{\textstyle{\hom(a,a)}} \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & c
+    }
+    \end{equation}
+
+    Рассмотрим теперь некоторый характер $\chi: \Hom \Gamma \to \mathbb{C}$.
+    Благодаря свойству $\chi(\psi \circ \phi) = \chi(\psi) + \chi(\phi)$ все 
+    вышесказанное в определенном смысле переносится и на характер $\chi$. Так, 
+    если $\chi$ задано на 
+    \begin{description}
+        \item[\mdseries{(a')}] $f: a \to b$, $\hom(a,a)$, то изоморфизм $\psi$ 
+        ``один в один'' переносит харакатер на $\hom (b,b)$: если 
+        $\chi(h) = \alpha$, то $\chi(\psi(h)) = \chi(fhf^{-1}) = \chi(f) + 
+        \chi(h) - \chi(f) = \chi(h)$, и характер однозначно определен на 
+        $\hom(b,b)$.
+        \item[\mdseries{(b')}] $f: a \to b$, $\hom(a,a)$, то харктер однозначно 
+        продолжается на $\hom(a,b)$, так как для любого $g \in \hom(a,b)$ существует 
+        $h \in \hom(a,a)$, такое что $fh = g$, и следовательно $\chi(g) = 
+        \chi(f) + \chi(h)$.
+        \item[\mdseries{(c')}] $f: a \to b$, $g: a \to c$, то автоматически 
+        можно задать характер на некотором $h: b \to c$, а именно $h = gf^{-1}$, 
+        и $\chi(h) = \chi(g) - \chi(f)$.
+    \end{description}
+
+    Таким образом, если в связном группоиде $\Gamma$ определить характер на 
+    группе петель $\hom(a,a)$ некоторой вершины $a$ и на стрелках $f: a \to b,\: 
+    g: a \to c\comdots$ из $a$ (по одной в каждую из остальных вершин $b,c\comdots$), то 
+    характер однозначно продолжается на все $\Hom \Gamma$. То есть, характер 
+    определяется своим  действием на группе петель произвольной
+    вершины $a$\footnote{или на \emph{фундаментальной группе}, что суть 
+    одно и то же,} и вектором значений $s \in \mathbb{C}^{n-1}$ на стрелках из 
+    $a$ (здесь $n = |\Obj(\Gamma)|$).
+
+    \begin{equation}\tag{\ref{cd_Grup}'}
+        \xymatrix{
+            b \ar@{-->}[ddrr]^{\textstyle{\chi(h)=\chi(g)- \chi(f)}}  &  & \\
+            & & \\
+            a \ar@(l,d)[]_{\textstyle{\chi|_{\hom(a,a)}}} \ar[uu]^{\textstyle{\chi(f)}} \ar[rr]_{\textstyle{\chi(g)}} & & c
+        }
+    \end{equation}
