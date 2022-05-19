@@ -10,16 +10,21 @@
 \usepackage{amsmath, amssymb, amsfonts, amsthm, amscd}
 \usepackage{mathrsfs}
 
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+
 \geometry{a4paper}
 \sloppy
 
 
 \theoremstyle{plain}
-\newtheorem*{theorem}{Теорема}
+\newtheorem{statement}{Утверждение}
 \theoremstyle{definition}
-\newtheorem*{definition}{Определение}
+\newtheorem{definition}{Определение}
+\newtheorem*{corollary}{Следствие}
 \theoremstyle{remark}
-\newtheorem*{problem}{Задача}
+\newtheorem*{remark}{Замечание}
 
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
@@ -28,21 +33,33 @@
 \renewcommand{\kappa}{\varkappa}
 
 \newcommand{\comdots}{,\!..}
-\newcommand{\subdim}[1]{\lfloor \dim #1 \rfloor}
 
 \DeclareMathOperator*{\Hom}{Hom}
 \DeclareMathOperator*{\Tor}{Tor}
 \DeclareMathOperator*{\Obj}{Obj}
+\DeclareMathOperator*{\Arr}{Arr}
 \DeclareMathOperator*{\Fund}{Fund}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\id}{id}
+\DeclareMathOperator*{\subdim}{\lfloor \dim \rfloor}
+
+\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
 
 \begin{document}
 
 \author{А.~A.~Владимиров}
 \title{Характер группоида}
-\date{27.04.2022}
+\date{12.05.2022}
 \maketitle
 
-\input{content.tex}
-\input{bibliography.tex}
+\input{intro.tex}
 
+\subsection*{Решение}
+            \input{elementary_groupoid.tex}
+\newpage    \input{groupoid.tex}
+\newpage    \input{group.tex}
+\newpage    \input{abelian_group.tex}
+\newpage    \input{outro.tex}
+            \input{bibliography.tex}
+            
 \end{document}

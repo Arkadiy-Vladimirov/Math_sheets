@@ -1,0 +1,51 @@
+\subsubsection{Абелева группа}
+    Итак, пусть некоторая группа $A$ --- абелева. Как задать на ней характер? 
+    Нетрудно получить ответ в случае \emph{конечно-порожденных} групп.
+
+    Известно, что для таких групп справедливо разложение
+    \footnote{см.\cite{Vinberg} гл.9 \S 1}
+    \begin{equation*}\label{A_decomp}
+        A \simeq \underbrace{\mathbb{Z} \oplus \ldots \oplus \mathbb{Z}}_{n} 
+    \oplus \Tor A = \mathbb{Z}^{n} \oplus \Tor A,
+    \end{equation*}
+    где $\mathbb{Z}^{n}$ --- \emph{свободная подгруппа},\\
+    $\Tor A \doteqdot \{a \in A: ma = 0\text{ для некоторого }m \in 
+    \mathbb{Z}, m \ne 0\}$ --- \emph{подгруппа кручения}, причем
+    \begin{equation*}\label{TorA_decomp}
+        \Tor A \simeq \mathbb{Z}_{p_1} \oplus \ldots \oplus \mathbb{Z}_{p_s},
+    \end{equation*}
+    где $\mathbb{Z}_{p_i}$ --- циклическая группа порядка $p_i$.
+    
+    Отсюда
+    \begin{equation}\label{G_basis}
+        A = 
+        \{x_1 e_1 + \ldots + x_n e_n + x_{n+1} f_1 + \ldots + x_{n+s} f_s 
+        \:|\: x_i \in \mathbb{Z}\},
+    \end{equation}
+    где $\{e_i\}_{i=1}^n$ -- базис свободной подгруппы, $\{f_i\}_{i=1}^s$ -- 
+    порождающие соответствующих циклических групп. Попутно введем обозначение 
+    $\subdim A = n$.
+
+    Пусть теперь задан характер $\chi: A \to \mathbb{C}$, тогда для любого 
+    $a \in A$, с учетом \eqref{G_basis} верно
+    \begin{multline*}
+        \chi(a) = \chi(\alpha_1 e_1 + \ldots + \alpha_n e_n 
+        + \alpha_{n+1} f_1 + \ldots + \alpha_{n+s} f_s ) = \\
+        = \alpha_1 \chi(e_1) + \ldots + \alpha_n \chi(e_n) 
+        + \alpha_{n+1} \chi(f_1) + \ldots + \alpha_{n+s} \chi(f_s),
+    \end{multline*}
+    но, так как порядок каждого элемента $f_i$ конечен, то $\chi(f_i) = 0$ для 
+    всех $i=1 \comdots, s$, и
+    \begin{equation}\label{chi_decomp}
+        \chi(a) = \alpha_1 \chi(e_1) + \ldots + \alpha_n \chi(e_n).
+    \end{equation}
+    
+    Тем самым доказано
+    \begin{statement}
+        Для конечно-порожденной группы $A$ пространство характеров 
+        $X(A) = \{\chi: A \to \mathbb{C}: 
+        \chi(a + b) = \chi(a) + \chi(b)\}$ имеет размерность
+        \begin{equation}
+            \dim X(A) = \subdim A.
+        \end{equation}
+    \end{statement}

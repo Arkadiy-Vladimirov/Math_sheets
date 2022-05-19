@@ -1,0 +1,160 @@
+\begin{definition}\cite{MacLane}
+    \emph{Группоидом} назывется категория, в которой любая стрелка обратима.
+\end{definition}
+
+Попытаемся вначале внести ясность в то, как группоид устроен. Под 
+группоидом здесь и всюду далее будет подразумеваться связный группоид. 
+Введем следующее
+\begin{definition}
+    \emph{Элементарным группоидом} будем называть группоид для любых двух 
+    вершин $a$ и $b$ которого существует одна и притом только одна стрелка 
+    $f: a \to b$. см. рис. \ref{cd_eGrup}.
+\end{definition}
+Тот факт, что такие группоиды существуют доказывается непосредственно 
+проверкой аксиом и представляется очевидным.
+
+\begin{figure}[h]
+    \centering
+    \[\xymatrix{
+        b \ar@{-->}[ddrr]^{\textstyle{h=g \circ f^{-1}}} & & \\
+        & & \\
+        a \ar@(l,d)[]_{\textstyle{\id_a}} \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & c
+    }\]
+    \caption{элементарный группоид}
+    \label{cd_eGrup}
+\end{figure}
+
+Заметим, что предъявление множества всех вершин и стрелок является 
+\emph{избыточным} для задания элементарного группоида. Введем объект 
+достаточный (и в некотором смысле минимальный) для определения 
+элементарного группоида целиком.
+
+\begin{definition}
+    \emph{Пучком стрелок}, исходящих из вершины $a$ назовем совокупность 
+    стрелок $f: a \to b$, $g: a \to c,\ldots$, по одной в каждую из 
+    остальных вершин $\Obj(\Gamma)/{a}$.
+\end{definition}
+
+\begin{statement}
+    Элементарный группоид задается пучком стрелок из произвольной вершины. 
+    Более точно: пусть $\Gamma$ --- элементарный группоид, $\pi(a)$ --- 
+    пучок стрелок из вершины $a \in \Obj(\Gamma)$, тогда минимальный по включению 
+    группоид, содержащий $\pi(a)$ совпадает с $\Gamma$.
+\end{statement}
+\begin{proof}
+    Доказательство представялется очевидным. см. рис. \ref{cd_eGrup_bas}
+\end{proof}
+
+\begin{figure}[h]
+    \centering
+    \[\xymatrix{
+        b \ar@{.>}@(r,u)[ddrr]^{\textstyle{h=g \circ f^{-1}}} 
+          \ar@{.>}@(dl,ul)[dd]_{\textstyle{f^{-1}}} 
+        & & \\
+        & & \\
+        a \ar@{.>}@(l,d)[]_{\textstyle{\id_a = g^{-1}g}} 
+          \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} 
+        & & 
+        c \ar@{.>}@(dl,dr)[ll]^{\textstyle{g^{-1}}} 
+          \ar@{.>}@/^/[lluu]_{\textstyle{h^{-1}}}
+    }\]
+    \caption{элементарный группоид "<натянутый"> на пучок стрелок}
+    \label{cd_eGrup_bas}
+\end{figure}
+
+Вернемся теперь к группоиду, не обязательно элементарному, и обратим 
+внимание на следующий факт 
+
+%\begin{figure}[h]
+%    \centering
+%    \[\xymatrix{
+%        b \ar@{-->}[ddrr]^{\textstyle{h=g \circ f^{-1}}} & & \\
+%        & & \\
+%        a \ar@(l,d)[]_{\textstyle{\hom(a,a)}} \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & c
+%    }\]
+%    \caption{группоид}
+%    \label{cd_Grup}
+%\end{figure}
+
+\begin{statement}
+    Для любых двух вершин $a$, $b$ $\in \Obj(\Gamma)$ справедливо
+    \begin{equation}\label{eq_fhom}
+        \hom(a,b) = f \cdot \hom(a,a),
+    \end{equation}
+    где $f \cdot A \doteqdot \{fh \:|\: \forall h \in A\}$, и 
+    $f$ --- произвольная стрелка из $a$ в $b$.
+\end{statement}
+\begin{proof}
+    Вложение правого множества в левое справедливо в силу аксиом 
+    композиции в категории.
+
+    Обратное вложение имеет место, так как для любого $g \in \hom(a,b)$ 
+    найдется $h \in \hom(a,a)$ такое, что $g = fh$, а именно $h = f^{-1}h$.
+\end{proof}
+
+Также общеизвестно слудующее
+\begin{statement}
+    Все группы петель группоида изоморфны. Конкретно: для любых $a$, $b$ 
+    $\in \Obj(\Gamma)$
+    \begin{equation}
+        \hom(b,b) = h\hom(a,a)h^{-1},
+    \end{equation}
+    где $h$ --- произвольная стрелка из $a$ в $b$.
+\end{statement}
+
+\begin{corollary} 
+\end{corollary}
+
+\newpage
+\begin{definition}
+    назовем \emph{пучком стрелок} исходящим из вершины $a$ совокупность стрелок 
+    $f: a \to b$, $g: a \to c,\ldots$, по одной в каждую из остальных вершин 
+    $\Obj(\Gamma)/{a}$.
+\end{definition}
+
+\begin{definition}
+    Назовем \emph{остовом} группоида $\Gamma$ с \emph{основанием} $a$ 
+    совокупность группы петель основания $\hom(a,a)$ и пучка исходящих из 
+    него стрелок (диаграмма \eqref{cd_ostov}).
+\end{definition}
+
+\begin{equation}\label{cd_ostov}
+    \xymatrix{
+        \bullet  &  & \dots \\
+        & & \\
+        \bullet \ar@(l,d)[]_{\textstyle{\hom(a,a)}} \ar[uurr] \ar[uu]^{\textstyle{f}} \ar[rr]_{\textstyle{g}} & & \bullet
+    }
+\end{equation}
+
+Ясно, что
+\begin{statement}
+    группоид однозначно определяется своим остовом.
+\end{statement}
+
+\begin{proof}
+    Действительно, пусть дан остов с основанием в вершине $a$, тогда 
+    множество объектов группоида определено и состовляет
+    \[\Obj(\Gamma) = a \cup \{b = \codom f: \text{по всем $f$ из пучка вершины $a$}\}.\]
+    Чтобы показать как остов определяет $\Hom(\Gamma)$ отметим следующие 
+    утверждения, справедливые в любом связном группоиде:
+    \begin{description}
+        \item[\mdseries{(a)}] для любых вершин  $a$  и $b$ 
+        \begin{equation}
+            \hom(a,b) = f \cdot \hom(a,a) = \{f\cdot h \:|\: \forall h \in \hom(a,a)\},
+        \end{equation}
+        где $f$ --- некоторая стрелка из $a$ из $b$. Действительно, 
+        вложение правого множества в левое очевидно, ввиду аксиом 
+        композиции категории. Обратное вложение справедливо, т.к. для 
+        любого $g \in \hom(a,b)$ существует $h \in \hom(a,a)$, такое что 
+        $fh = g$, а именно $h = f^{-1}g$.
+        \item[\mdseries{(b)}]
+        \item[\mdseries{(c)}]
+    \end{description}
+
+\end{proof}
+
+\bigskip
+
+    Логично задаться вопросом: как конкретно определяется характер на 
+    фунадментальной группе? Для его решения попробуем задать характер на группе 
+    вообще.
