@@ -2,13 +2,17 @@
     Рассмотрим некоторую группу $G$, его фактор-группу $G/G'$ по коммутанту 
     $G'$ и следующую диаграмму
 
-    \begin{equation}\label{cd_ab}
-        \xymatrix{
+    \begin{figure}[h]
+        \centering
+        \[\xymatrix{
             G \ar[rr]^{\textstyle{\tau}} \ar[rrdd]_{\textstyle{\chi}} & & G/G'\ar[dd]^{\textstyle{\chi_{ab}}} \\
             & & \\
             & & \mathbb{C}
-        }
-    \end{equation}
+        }\]
+        \caption{}
+        \label{cd_ab}
+    \end{figure}
+
     Здесь $\tau: g \mapsto gG'$ --- канонический гомоморфизм; $\chi$, 
     $\chi_{ab}$ --- характеры групп $G$ и $G/G'$ соответственно.
 
@@ -55,7 +59,6 @@
         \label{img_chi_factor}
     \end{figure}
 
-    \newpage
     Обратно,
     \begin{statement} характер $\chi_{ab}$ однозначно задает $\chi$, как 
         \[\chi = \chi_{ab}\circ \tau\]
