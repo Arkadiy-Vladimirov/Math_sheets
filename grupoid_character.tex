@@ -21,6 +21,7 @@
 \theoremstyle{plain}
 \newtheorem{lemma}{Лемма}
 \newtheorem{statement}{Утверждение}
+\newtheorem{theorem}{Теорема}
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}
 \newtheorem{corollary}{Следствие}
@@ -34,6 +35,7 @@
 \renewcommand{\kappa}{\varkappa}
 
 \newcommand{\comdots}{,\!..}
+\newcommand{\sub}[1]{\lfloor #1 \rfloor}
 
 \DeclareMathOperator*{\Hom}{Hom}
 \DeclareMathOperator*{\Tor}{Tor}
@@ -59,10 +61,15 @@
 \section*{Решение}
 \tableofcontents
 
-\newpage    \subsection{Характер группоида}
-            \input{groupoid.tex}
-\newpage    \input{group.tex}
-            \input{abelian_group.tex}
+\newpage    \subsection{Структура группоида}
+            \input{groupoid_struct.tex}
+
+\newpage    \subsection{Пространство характеров}
+            \input{char_texs/groupoid.tex}
+            \input{char_texs/simple_groupoid.tex}
+            \input{char_texs/group.tex}
+            \input{char_texs/abelian_group.tex}
+            \input{char_texs/result.tex}
 
 \newpage    \subsection{Преобразование характеров}
             \input{outro.tex}

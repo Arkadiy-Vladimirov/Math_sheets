@@ -1,14 +1,11 @@
 \subsubsection{Абелева группа}
-    Итак, пусть некоторая группа $A$ --- абелева. Как задать на ней характер? 
-    Нетрудно получить ответ в случае \emph{конечно-порожденных} групп.
-
-    Известно, что для таких групп справедливо разложение
-    \footnote{см.\cite{Vinberg} гл.9 \S 1}
+    Итак, пусть некоторая группа $A$ --- абелева. Известно, что для 
+    \emph{конечно-порожденных} абелевых групп справедливо разложение 
+    (\cite{Vinberg} гл.9 \S 1)
     \begin{equation*}\label{A_decomp}
-        A \simeq \underbrace{\mathbb{Z} \oplus \ldots \oplus \mathbb{Z}}_{n} 
-    \oplus \Tor A = \mathbb{Z}^{n} \oplus \Tor A,
+        A = \sub{A} \oplus \Tor A,
     \end{equation*}
-    где $\mathbb{Z}^{n}$ --- \emph{свободная подгруппа},\\
+    где $\sub{A} \simeq \mathbb{Z}^{n}$ --- \emph{свободная подгруппа},\\ 
     $\Tor A \doteqdot \{a \in A: ma = 0\text{ для некоторого }m \in 
     \mathbb{Z}, m \ne 0\}$ --- \emph{подгруппа кручения}, причем
     \begin{equation*}\label{TorA_decomp}
@@ -23,8 +20,7 @@
         \:|\: x_i \in \mathbb{Z}\},
     \end{equation}
     где $\{e_i\}_{i=1}^n$ -- базис свободной подгруппы, $\{f_i\}_{i=1}^s$ -- 
-    порождающие соответствующих циклических групп. Попутно введем обозначение 
-    $\subdim A = n$.
+    порождающие соответствующих циклических групп.
 
     Пусть теперь задан характер $\chi: A \to \mathbb{C}$, тогда для любого 
     $a \in A$, с учетом \eqref{G_basis} верно
@@ -41,11 +37,9 @@
     \end{equation}
     
     Тем самым доказано
-    \begin{statement}
-        Для конечно-порожденной группы $A$ пространство характеров 
-        $X(A) = \{\chi: A \to \mathbb{C}: 
-        \chi(a + b) = \chi(a) + \chi(b)\}$ имеет размерность
+    \begin{statement} Для конечно-порожденной абелевой группы справедливо
         \begin{equation}
-            \dim X(A) = \subdim A.
+            X(A) \simeq X(\sub{A}),
         \end{equation}
+    где $X$~--- векторное пространство характеров на группе.
     \end{statement}
