@@ -1,21 +1,19 @@
 
-    Дан функтор $\kappa = (\kappa_1, \kappa_2): \mathbf{Cat}(\Gamma) \to 
-    \mathbf{Vec}$.\\
-    Найти $\kappa_2 : (f: \Gamma_1 \to \Gamma_2) \mapsto 
-    (A_f: \kappa_1(\Gamma_1) \to \kappa_1(\Gamma_2))$, если известно, что 
-    $\kappa_1 : \Gamma \mapsto V$, где $V$ -- пространство характеров, т.е. 
-    $V = \{\chi: \Hom \Gamma \to \mathbb{C}: \chi(\psi \circ \phi) = 
-    \chi(\psi) + \chi(\phi)\}$.
+    Дан функтор $\kappa : \mathbf{Cat}(\Gamma) \to \mathbf{Vec}$, каждому 
+    группоиду ставящий в соответсвтие линейное пространство его характеров~--- 
+    \[X(\Gamma) = \{\chi: \Arr \Gamma \to \mathbb{C}: \chi(\psi \circ \phi) = 
+    \chi(\psi) + \chi(\phi)\}.\]
 
-    Таким образом задача сводится к нахождению линейного оператора $A_f$ на 
-    коммутативной диаграмме 
+    Задача состоит в отыскании действия $\kappa$ на $\Arr \mathbf{Cat}(\Gamma)$, 
+    иными словами в нахождении линейного оператора $\chi(\phi) : X(\Gamma_1) 
+    \to X(\Gamma_2)$ на коммутативной диаграмме~\ref{cd_problem}.
 
     \begin{figure}[h]
         \centering
         \[\xymatrix{
-            \Gamma_1 \ar[dd]^{\textstyle{f}} \ar[rr]^{\textstyle{\kappa}} & & V_1 \ar[dd]^{\textstyle{A_f}} \\
-                                            & & \\
-            \Gamma_2 \ar[rr]^{\textstyle{\kappa}}           & & V_2
+            \Gamma_1 \ar[dd]^{\textstyle{\phi}} \ar@{|..>}[rr]^{\textstyle{\kappa}}    & & X(\Gamma_1) \ar[dd]^{\textstyle{\chi(\phi)}} \\
+                                                                                & & \\
+            \Gamma_2 \ar@{|..>}[rr]^{\textstyle{\kappa}}                               & & X(\Gamma_2)
         }\]
         \caption{постановка задачи}
         \label{cd_problem}
